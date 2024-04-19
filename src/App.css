@@ -1,0 +1,28 @@
+body {
+  background: #000000;
+  /* background: #01160e; */
+  /* background: #bbaeae; */
+  /* background: #461d1d; */
+  /* background: #088853; */
+
+}
+
+body::-webkit-scrollbar {
+  width: 12px;
+  background: #13011f;
+}
+
+body::-webkit-scrollbar-track {
+  background: #000000;
+  border-radius: 10px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #033958;
+  border-radius: 10px;
+  transition: background 0.3s ease; /* Smooth transition */
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: #000000;
+}
