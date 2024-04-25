@@ -4,17 +4,16 @@ import App from './App.tsx'
 import './index.css'
 import { NextUIProvider } from '@nextui-org/react'
 import { BrowserRouter } from 'react-router-dom'
-import { UserProvider } from './context/UserContext.tsx'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <BrowserRouter>
-    <UserProvider>
+
     <NextUIProvider>
     
       <App />
     </NextUIProvider>
-    </UserProvider>
+  
     </BrowserRouter>
   </React.StrictMode>,
 )
