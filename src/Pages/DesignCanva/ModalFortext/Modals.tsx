@@ -1,21 +1,21 @@
-import React, { useState } from 'react';
-import { Modal, ModalContent, ModalHeader, ModalBody,useDisclosure, ModalFooter, Button, Input } from '@nextui-org/react';
+import  { useState } from 'react';
+import { Modal, ModalContent, ModalHeader, ModalBody, useDisclosure, ModalFooter, Button, Input } from '@nextui-org/react';
 import { Palette, Type, X } from 'lucide-react';
 import { ChromePicker } from 'react-color';
 import FontSelect from './Select/FontSelect';
 import ColourSelect from './Select/ColourSelect';
-import SizeSelect from './Select/SizeSelect'; // Import the SizeSelect component
+import SizeSelect from './Select/SizeSelect'; 
 
 export default function Modals() {
     const { isOpen, onOpen, onClose } = useDisclosure();
-    const [modalPlacement, setModalPlacement] = useState('auto');
+    const [modalPlacement, setModalPlacement] = useState(undefined); 
     const [inputText, setInputText] = useState('');
     const [color, setColor] = useState('#000000');
     const [font, setFont] = useState('Arial');
     const [size, setSize] = useState('medium'); // State for the size
 
     const [showColorPicker, setShowColorPicker] = useState(false);
-
+console.log(setModalPlacement)
     const toggleColorPicker = () => {
         setShowColorPicker(!showColorPicker);
     };

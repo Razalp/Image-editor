@@ -1,5 +1,3 @@
-import React from 'react'
-import { TypewriterEffect } from "../../components/ui/typewriter-effect";
 import { Button } from '@nextui-org/react';
 import { useNavigate } from 'react-router-dom';
 const GoTo = () => {

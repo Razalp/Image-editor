@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router-dom"
 import Navbars from "../NavBar/Navbars"
 import { InfiniteMovingCardsDemo } from "./Cards"
 import { DirectionAwareHoverDemo } from "./DirectionHoverImage"

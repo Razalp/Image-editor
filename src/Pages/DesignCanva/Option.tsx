@@ -1,5 +1,5 @@
-import React from "react";
-import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Button} from "@nextui-org/react";
+
+import {Navbar, NavbarBrand, NavbarContent, NavbarItem} from "@nextui-org/react";
 import Modals from "./ModalFortext/Modals";
 
 export default function Option() {

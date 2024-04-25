@@ -3,11 +3,12 @@ import { TypewriterEffect } from "../../components/ui/typewriter-effect";
 import { auth, provider } from '../../firebase/config';
 import { signInWithPopup } from "firebase/auth";
 import { useEffect, useState } from "react";
-import Home from "../Home/Home";
+import { UserInfo } from "../../InterFace/userInterFace";
 import { useNavigate } from "react-router-dom";
 
 const GetStart = () => {
-    let [userInfo, setUserInfo] = useState(null);
+    const [userInfo, setUserInfo] = useState<UserInfo | null>(null);
+    console.log(userInfo)
     const navigate=useNavigate()
     const words = [      
         {
@@ -35,31 +36,37 @@ const GetStart = () => {
     const handleClick = () => {
         signInWithPopup(auth, provider).then((result) => {
             const user = result.user;
-            setUserInfo({
-                email: user.email,
-                profileImage: user.photoURL,
-                profileName: user.displayName 
-            });
-            localStorage.setItem("email", user.email);
-            localStorage.setItem("profileImage", user.photoURL);
-            localStorage.setItem("profileName", user.displayName);
-            navigate('/home')
+            const userInfo: UserInfo = {
+                email: user.email || "",
+                profileImage: user.photoURL || "",
+                profileName: user.displayName || ""
+            };
+            setUserInfo(userInfo);
+            localStorage.setItem("email", userInfo.email);
+            localStorage.setItem("profileImage", userInfo.profileImage);
+            localStorage.setItem("profileName", userInfo.profileName);
+            if(userInfo.email){
+                navigate('/home');
+            }
         }).catch((error) => {
-            // Handle errors here
             console.error(error);
         });
     };
     
-
     useEffect(() => {
         const email = localStorage.getItem("email");
         const profileImage = localStorage.getItem("profileImage");
-        if (email && profileImage) {
-            setUserInfo({ email, profileImage });
-            navigate('/home')
+        const profileName = localStorage.getItem("profileName");
+        if (email && profileImage && profileName) {
+            const userInfo: UserInfo = {
+                email,
+                profileImage,
+                profileName
+            };
+            setUserInfo(userInfo);
+            navigate('/home');
         }
     }, []);
-
 
 
 

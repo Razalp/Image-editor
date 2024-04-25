@@ -9,40 +9,25 @@ const Canva = () => {
   const [image, setImage] = useState(null);
   const [filter, setFilter] = useState('');
 
-  const handleDragOver = (e) => {
+  const handleDragOver = (e:any) => {
     e.preventDefault();
   };
 
-  const handleDrop = (e) => {
+  const handleDrop = (e:any) => {
     e.preventDefault();
     const file = e.dataTransfer.files[0];
     if (file) {
       const reader = new FileReader();
-      reader.onload = (event) => {
+      reader.onload = (event:any) => {
         setImage(event.target.result);
       };
       reader.readAsDataURL(file);
     }
   };
 
-  const applyFilter = (filterName) => {
+  const applyFilter = (filterName: React.SetStateAction<string>) => {
     setFilter(filterName);
   };
-
-  const removeFilter = () => {
-    setFilter('');
-  };
-
-  const slideLeft = () => {
-    var slider = document.getElementById('slider' + rowID);
-    slider.scrollLeft = slider.scrollLeft - 500;
-  };
-  const slideRight = () => {
-    var slider = document.getElementById('slider' + rowID);
-    slider.scrollLeft = slider.scrollLeft + 500;
-  };
-
-  
 
   return (
     <>
@@ -64,10 +49,11 @@ const Canva = () => {
         )}
       </div>
       <br />
+      {image && (
         <div className="mt-4">
           <Applyafilters applyFilter={applyFilter} imageUrl={image}/>
         </div>
-      
+      )}
     </div>
     </>
   );
