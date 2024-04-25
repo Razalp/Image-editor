@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { Image } from "@nextui-org/react";
 import Applyafilters from './Applyafilters';
+import Option from './Option';
 
 const Canva = () => {
   const [image, setImage] = useState(null);
@@ -41,7 +42,11 @@ const Canva = () => {
     slider.scrollLeft = slider.scrollLeft + 500;
   };
 
+  
+
   return (
+    <>
+    <Option/>
     <div className="min-h-screen flex justify-center items-center flex-col" onDragOver={handleDragOver} onDrop={handleDrop}>
       <div>
         <br />      
@@ -64,6 +69,7 @@ const Canva = () => {
         </div>
       
     </div>
+    </>
   );
 };
 

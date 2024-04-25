@@ -24,9 +24,9 @@ const ApplyFilters = ({ applyFilter, imageUrl }) => {
         const updatePageSize = () => {
             const windowWidth = window.innerWidth;
             if (windowWidth >= 768) {
-                setFiltersPerPage(5); // Display 5 filters per page for medium screens and above
+                setFiltersPerPage(5);
             } else {
-                setFiltersPerPage(2); // Display 2 filters per page for small screens
+                setFiltersPerPage(2); 
             }
         };
 

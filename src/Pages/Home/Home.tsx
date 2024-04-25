@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom"
 import Navbars from "../NavBar/Navbars"
 import { InfiniteMovingCardsDemo } from "./Cards"
 import { DirectionAwareHoverDemo } from "./DirectionHoverImage"
@@ -5,6 +6,7 @@ import GoTo from "./GoTo"
 
 
 const Home = () => {
+
   return (
    <div className="h-auto ">
   <Navbars/>
